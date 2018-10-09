@@ -8,6 +8,6 @@ import { DirModule } from '../common/dir/dir.module';
 @NgModule({
   imports: [CommonModule, DirModule],
   declarations: [ProductListComponent, ProductComponent],
-  exports: [ProductListComponent]
+  exports: [ProductListComponent, DirModule]
 })
 export class ProductsModule {}
