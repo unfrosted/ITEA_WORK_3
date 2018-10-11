@@ -12,13 +12,24 @@ export class ProductListComponent implements OnInit {
 
   constructor() {
     this.products = [
-      { id: 1, name: 'Абрикос' },
-      { id: 2, name: 'Банан', description: 'Очень вкусный' },
-      { id: 3, name: 'Виноград' },
-      { id: 4, name: 'Грейпфрут' },
-      { id: 5, name: 'Дыня' }
+      { id: 1, name: 'Абрикос', capacity: 10 },
+      { id: 2, name: 'Банан', capacity: 20, description: 'Очень вкусный' },
+      { id: 3, name: 'Виноград', capacity: 30 },
+      { id: 4, name: 'Грейпфрут', capacity: 40 },
+      { id: 5, name: 'Дыня', capacity: 50 }
     ];
   }
 
   ngOnInit() {}
+
+  onBuy(product: ProductModel): void {
+    console.log(`[ProductListComponent]: ${product.name}`);
+
+    const idx = this.products.findIndex(p => p.id === product.id);
+    if (idx !== -1) {
+      if (this.products[idx].capacity > 0) {
+        this.products[idx].capacity--;
+      }
+    }
+  }
 }
