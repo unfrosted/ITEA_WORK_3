@@ -8,8 +8,13 @@ import { DataService } from './services/data.service';
 })
 export class AppComponent {
   title = 'itea-shop';
+  visible = false;
 
   constructor(private dataService: DataService) {
     this.dataService.getData();
+  }
+
+  onToggle() {
+    this.visible = !this.visible;
   }
 }

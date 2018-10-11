@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 import { ProductModel } from '../../models/product.model';
 
@@ -7,20 +7,30 @@ import { ProductModel } from '../../models/product.model';
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css']
 })
-export class ProductListComponent implements OnInit {
+export class ProductListComponent implements OnInit, OnDestroy {
   products: Array<ProductModel>;
 
-  constructor() {
+  ngOnInit() {
+    console.log(`[ngOnInit]`);
     this.products = [
-      { id: 1, name: 'Абрикос', capacity: 10 },
-      { id: 2, name: 'Банан', capacity: 20, description: 'Очень вкусный' },
-      { id: 3, name: 'Виноград', capacity: 30 },
-      { id: 4, name: 'Грейпфрут', capacity: 40 },
-      { id: 5, name: 'Дыня', capacity: 50 }
+      { id: 1, name: 'Абрикос', capacity: 10, isAvailable: true },
+      {
+        id: 2,
+        name: 'Банан',
+        capacity: 20,
+        isAvailable: true,
+        description: 'Очень вкусный'
+      },
+      { id: 3, name: 'Виноград', capacity: 30, isAvailable: true },
+      { id: 4, name: 'Грейпфрут', capacity: 40, isAvailable: true },
+      { id: 5, name: 'Дыня', capacity: 0, isAvailable: false }
     ];
   }
 
-  ngOnInit() {}
+  ngOnDestroy() {
+    console.log(`[ngOnDestroy]`);
+    this.products.length = 0;
+  }
 
   onBuy(product: ProductModel): void {
     console.log(`[ProductListComponent]: ${product.name}`);

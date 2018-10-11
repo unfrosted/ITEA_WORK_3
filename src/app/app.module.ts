@@ -3,9 +3,10 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { ProductsModule } from './products/products.module';
+import { MessageComponent } from './common/components/message/message.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, MessageComponent],
   imports: [BrowserModule, ProductsModule],
   providers: [],
   bootstrap: [AppComponent]

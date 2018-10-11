@@ -2,3 +2,11 @@
   border: blue 1px solid;
   padding: 20px;
 }
+.odd {
+  background-color:antiquewhite;
+  display: block;
+}
+.even {
+  background-color:aliceblue;
+  display: block;
+}

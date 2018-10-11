@@ -1,6 +1,7 @@
 <div class="b">
   <app-product
-  *ngFor="let product of products"
+  *ngFor="let product of products; let o=odd;"
+  [ngClass]="o ? 'odd' : 'even'"
   [product]="product"
   (buy)="onBuy($event)">
 </app-product>
