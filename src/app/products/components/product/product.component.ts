@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductModel } from '../../models/product.model';
 
 @Component({
   selector: 'app-product',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
+  // private serverData = { id: 2, name: 'Батон' } as ProductModel;
+  product: ProductModel;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
+    this.product = new ProductModel(1, 'Хлеб');
+    // this.product = this.serverData;
   }
-
 }
