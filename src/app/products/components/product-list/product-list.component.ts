@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 import { ProductModel } from '../../models/product.model';
+import { ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-product-list',
@@ -9,25 +10,24 @@ import { ProductModel } from '../../models/product.model';
 })
 export class ProductListComponent implements OnInit, OnDestroy {
   products: Array<ProductModel>;
+  productsP: Promise<Array<ProductModel>>;
   filterVal: string;
 
+  constructor(private productService: ProductService) {}
+
   ngOnInit() {
-    console.log(`[ngOnInit]`);
-    this.products = [
-      { id: 1, name: 'Абрикос', capacity: 10, isAvailable: true },
-      {
-        id: 2,
-        name: 'Банан',
-        capacity: 20,
-        isAvailable: true,
-        description: 'Очень вкусный',
-        price: 35,
-        cdate: '2018-10-16'
-      },
-      { id: 3, name: 'Виноград', capacity: 30, isAvailable: true },
-      { id: 4, name: 'Грейпфрут', capacity: 40, isAvailable: true },
-      { id: 5, name: 'Дыня', capacity: 0, isAvailable: false }
-    ];
+    // this.products = this.productService.getProducts();
+    // 1
+    // this.productService.getProductsAsync().then(products =>
+    //   this.products = products);
+    // 2
+    // this.getProducts();
+    // 3
+    this.productsP = this.productService.getProductsAsync();
+  }
+
+  async getProducts() {
+    this.products = await this.productService.getProductsAsync();
   }
 
   ngOnDestroy() {

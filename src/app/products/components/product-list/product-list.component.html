@@ -5,7 +5,7 @@
                  (input)="onInput($event)" />
 
   <app-product
-  *ngFor="let product of products | productFilter : filterVal; let o=odd;"
+  *ngFor="let product of productsP | async | productFilter : filterVal; let o=odd;"
   [ngClass]="o ? 'odd' : 'even'"
   [product]="product"
   (buy)="onBuy($event)">
