@@ -1,10 +1,21 @@
+<div>
+  <div appAddNextDiv>Link</div>
+</div>
+
+
+
+
 <app-message *ngIf="visible">
   Warning!
 </app-message>
 
 <button (click)="onToggle()">Toggle Message</button>
 
-<app-product-list appStylish></app-product-list>
+<app-product-list appClickable></app-product-list>
+
+<div appClickable>Div for Directive</div>
+
+
 
 
 
