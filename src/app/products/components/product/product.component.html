@@ -1,6 +1,8 @@
 <div class="b">
   <p>ID: {{product.id}}</p>
-  <p>Name: {{product.name}}</p>
+  <p>Name: {{product.name | uppercase}}</p>
+  <p>Price: {{product.price | currency: 'USD':'code'}}</p>
+  <p>Date: {{product.cdate | date: 'MM.yyyy'}}</p>
   <p>Capacity: {{product.capacity}}</p>
   <p *ngIf="product.capacity === 0">Товар закончился</p>
   <button *ngIf="product.capacity > 0" (click)="onBuy($event)">Купить</button>

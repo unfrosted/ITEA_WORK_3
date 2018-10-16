@@ -9,6 +9,7 @@ import { ProductModel } from '../../models/product.model';
 })
 export class ProductListComponent implements OnInit, OnDestroy {
   products: Array<ProductModel>;
+  filterVal: string;
 
   ngOnInit() {
     console.log(`[ngOnInit]`);
@@ -19,7 +20,9 @@ export class ProductListComponent implements OnInit, OnDestroy {
         name: 'Банан',
         capacity: 20,
         isAvailable: true,
-        description: 'Очень вкусный'
+        description: 'Очень вкусный',
+        price: 35,
+        cdate: '2018-10-16'
       },
       { id: 3, name: 'Виноград', capacity: 30, isAvailable: true },
       { id: 4, name: 'Грейпфрут', capacity: 40, isAvailable: true },
@@ -41,5 +44,9 @@ export class ProductListComponent implements OnInit, OnDestroy {
         this.products[idx].capacity--;
       }
     }
+  }
+
+  onInput(event: any): void {
+    this.filterVal = event.target.value;
   }
 }

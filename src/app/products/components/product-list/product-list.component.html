@@ -1,6 +1,11 @@
 <div class="b">
+
+  Filter: <input type="text" value=""
+                 placeholder="Enter First Letter"
+                 (input)="onInput($event)" />
+
   <app-product
-  *ngFor="let product of products; let o=odd;"
+  *ngFor="let product of products | productFilter : filterVal; let o=odd;"
   [ngClass]="o ? 'odd' : 'even'"
   [product]="product"
   (buy)="onBuy($event)">
