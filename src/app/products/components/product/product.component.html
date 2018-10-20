@@ -1,4 +1,4 @@
-<div class="b">
+<div class="b" [ngStyle]="{'display': 'block', 'background-color': 'teal', 'font-family': 'serif'}">
   <p>ID: {{product.id}}</p>
   <p>Name: {{product.name | uppercase}}</p>
   <p>Price: {{product.price | currency: 'USD':'code'}}</p>

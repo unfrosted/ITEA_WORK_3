@@ -1,11 +1,12 @@
-import { Component, EventEmitter, OnInit, Input, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Input, Output, ViewEncapsulation } from '@angular/core';
 import { ProductModel } from '../../models/product.model';
 import { ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
-  styleUrls: ['./product.component.css']
+  styleUrls: ['./product.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ProductComponent implements OnInit {
   @Input()
@@ -23,4 +24,5 @@ export class ProductComponent implements OnInit {
     console.log(event);
     this.buy.emit(this.product);
   }
+ 
 }

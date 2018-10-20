@@ -6,8 +6,10 @@
 
   <app-product
   *ngFor="let product of productsP | async | productFilter : filterVal; let o=odd;"
-  [ngClass]="o ? 'odd' : 'even'"
-  [product]="product"
-  (buy)="onBuy($event)">
+  [ngClass]="o ? 'odd' : 'even'" 
+    [product]="product"
+  (buy)="onBuy($event)"
+  [ngStyle]="stylish()"
+  >
 </app-product>
 </div>

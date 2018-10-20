@@ -49,4 +49,12 @@ export class ProductListComponent implements OnInit, OnDestroy {
   onInput(event: any): void {
     this.filterVal = event.target.value;
   }
+
+  stylish() {
+    const styles =  {'padding': '2px',
+                      'color': 'white',
+                      'border-radius div': '17px!importand'
+   };
+   return styles;
+  }
 }
